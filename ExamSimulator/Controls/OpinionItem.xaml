@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="ExamSimulator.Controls.OpinionItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExamSimulator.Controls"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel x:Name="stkOpinionItem" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" x:Name="pnlUsername">
+                <Label x:Name="lblUsername" Content="Username:" Foreground="#FF36648E" FontWeight="Bold" FontSize="15"/>
+                <TextBlock Name="txtUsername"  Text="txtUsername" Margin="10 5 10 0" Width="800px" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="15"  Foreground="#FF838383" TextWrapping="WrapWithOverflow"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" x:Name="pnlScore">
+                <Label x:Name="lblScore" Content="Score:" Foreground="#FF36648E" FontWeight="Bold" FontSize="15"/>
+                <TextBlock Name="txtScore"  Text="txtScore" Margin="10 5 10 0" Width="800px" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="15"  Foreground="#FF838383" TextWrapping="WrapWithOverflow"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" x:Name="pnlCreated">
+                <Label x:Name="lblCreated" Content="Created On:" Foreground="#FF36648E" FontWeight="Bold" FontSize="15"/>
+                <TextBlock Name="txtCreated"  Text="txtCreated" Margin="10 5 10 0" Width="800px" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="15"  Foreground="#FF838383" TextWrapping="WrapWithOverflow"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" x:Name="pnlOpinion">
+                <Label x:Name="lblOpinion" Content="Created On:" Foreground="#FF36648E" FontWeight="Bold" FontSize="15"/>
+                <TextBlock Name="txtOpinion"  Text="txtOpinion" Margin="10 5 10 0" Width="800px" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="15"  Foreground="#FF838383" TextWrapping="WrapWithOverflow"/>
+            </StackPanel>
+            <Separator/>
+        </StackPanel>
+    </Grid>
+</UserControl>

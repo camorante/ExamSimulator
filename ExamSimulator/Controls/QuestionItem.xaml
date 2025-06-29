@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="ExamSimulator.Controls.QuestionItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExamSimulator.Controls"
+             xmlns:uc="clr-namespace:ExamSimulator.Controls"
+             mc:Ignorable="d" >
+    <Grid>
+        <ScrollViewer x:Name="scrViewOpinions" VerticalScrollBarVisibility="Auto">
+        <StackPanel Orientation="Vertical" x:Name="AnswerList">
+            <StackPanel Orientation="Horizontal" >
+                <Image  x:Name="imgIcon"/>
+                <Label x:Name="lblNumber" Content="1. " Foreground="#FF838383" FontWeight="Bold" FontSize="15" VerticalAlignment="Center"></Label>
+                    <TextBlock Name="txtQuestionText"  Text="Question Text" Margin="10 10 10 0" Width="800px" HorizontalAlignment="Left"  FontWeight="Bold" FontSize="16"  Foreground="#FF838383" TextWrapping="WrapWithOverflow"/>
+                </StackPanel>
+            <uc:QuestionList x:Name="QuestionList"></uc:QuestionList>
+
+            <StackPanel Orientation="Vertical" x:Name="AnswerExp">
+                <Label Content="Correct Answer:" Foreground="#FF838383" FontWeight="Bold" FontSize="15"></Label>
+                <Label x:Name="lblRightAnswer" Content="A,B,C" Foreground="#FF838383" FontSize="15"></Label>
+                <Label Content="Explanation:" Foreground="#FF838383" FontWeight="Bold" FontSize="15"></Label>
+                <TextBlock x:Name="txtExplanation"  Text="Question Text" FontSize="15" Margin="5 0 0 0" Width="800px" HorizontalAlignment="Left"  Foreground="#FF838383" TextWrapping="WrapWithOverflow"/>
+                <Label Content="Opinions:" Foreground="#FF838383" FontWeight="Bold" FontSize="15"></Label>
+ 
+                <local:OpinionList x:Name="ctrOpinions" />
+       
+                <Separator/>
+            </StackPanel>
+        </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

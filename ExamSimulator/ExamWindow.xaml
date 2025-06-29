@@ -1,0 +1,89 @@
+﻿<Window x:Class="ExamSimulator.ExamWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamSimulator"
+        xmlns:viewmodel="clr-namespace:ExamSimulator.ModelView"
+        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:ExamSimulator.Controls"
+        xmlns:app="clr-namespace:ExamSimulator.Model"
+        Title="ExamWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <Style 
+            TargetType="Button" x:Key="BlueButton">
+            <Setter Property="FontFamily" Value="Resources/teen bd.ttf#Teen" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Background" Value="#00a6ff" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+
+                        <Border CornerRadius="1" Padding="2" Margin="5 2.5 5 2.5" Background="{TemplateBinding Background}" >
+                            <Grid>
+                                <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#C0C0C0" />
+                                <Setter Property="Foreground" Value="#00a6ff" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="OrangeRed" />
+                                <Setter Property="Foreground" Value="#00a6ff" />
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <viewmodel:ExamViewModel x:Key="examViewModel" />
+       
+    </Window.Resources>
+    <Grid x:Name="ExamGrid" DataContext="{StaticResource examViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" x:Name="lblExamName" Content="Exam Name"  Background="#f2f2f2" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Center"></Label>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="{Binding ExamProgressText}" HorizontalAlignment="Right" Margin="0 0 10px 0"  FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center" Foreground="#FF838383"></Label>
+            <Label Grid.Column="1" x:Name="lblTimer" Content="{Binding TimeLeftText}" HorizontalAlignment="Left" Margin="0 0 10px 0"  FontWeight="Bold" FontSize="16" HorizontalContentAlignment="Center" Foreground="#FF122FE4"></Label>
+        </Grid>
+        <Grid Grid.Row="2">
+            <!--<uc:QuestionList Question="{Binding Question, Mode=TwoWay}" />-->
+            <uc:QuestionItem x:Name="questionItem"  Margin="15 0 0 0" Question="{Binding Question, Mode=TwoWay}" ShowAnswer="False" />
+        </Grid>
+        <Grid Grid.Row="3" Background="#f2f2f2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Button x:Name="btnSave" Width="120px" Content="Save" Style="{StaticResource BlueButton}" Click="btnSave_Click"></Button>
+                <Button x:Name="btnFinish" Width="120px" Content="Finish" Style="{StaticResource BlueButton}" Click="btnFinish_Click"></Button>
+                <Button x:Name="btnPause" Width="120px" Content="Pause" Style="{StaticResource BlueButton}" Click="btnPause_Click"></Button>
+                <Button x:Name="btnShowCorrect" Width="120px" Content="Show" Style="{StaticResource BlueButton}" Click="btnShowCorrect_Click"/>
+                <Button x:Name="btnContinue" Width="120px" Content="Continue" Visibility="Hidden" Style="{StaticResource BlueButton}" Click="btnContinue_Click"/>
+                
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnPrev" Width="120px" Content="&lt; Previous" Style="{StaticResource BlueButton}" Click="btnPrev_Click"/>
+                <Button x:Name="btnNext" Width="120px" Content="Next &gt;" Style="{StaticResource BlueButton}" Click="btnNext_Click"></Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
