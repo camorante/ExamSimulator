@@ -5,6 +5,8 @@
     <UseWPF>true</UseWPF>
     <ApplicationIcon>app.ico</ApplicationIcon>
     <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
